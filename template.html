@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Report title — Subtitle</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Per-report accent override. Pick from palettes.md or roll your own. */
+  :root {
+    --accent: #245a8d;
+    --accent-soft: #e8f0f7;
+  }
+</style>
+</head>
+<body>
+
+<h1>Report title</h1>
+<p class="subtitle">One-line description of what this report is and who it's for.</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#components">Components on display</a></li>
+    <li><a href="#phases">Phased plan</a></li>
+    <li><a href="#verdict">Verdict</a></li>
+  </ol>
+</div>
+
+<h2 id="intro">1. Intro</h2>
+<p>A paragraph of body copy. The body is set at 15px on a 1.55 line-height, on a warm off-white background (<code>#fafaf7</code>). Code spans look like <code>this.method()</code>.</p>
+
+<h2 id="components">2. Components on display</h2>
+
+<h4>Cards (in a responsive grid)</h4>
+<div class="grid">
+  <div class="card">
+    <h4>Card title</h4>
+    <p>Cards sit on white with a thin warm border. The <code>h4</code> inside a card uses the report's accent color.</p>
+  </div>
+  <div class="card">
+    <h4>Second card</h4>
+    <ul>
+      <li>Bulleted item</li>
+      <li>Another item</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Third card</h4>
+    <p>Cards auto-flow at <code>minmax(280px, 1fr)</code>.</p>
+  </div>
+</div>
+
+<h4>Two-column block</h4>
+<div class="twocol">
+  <div>
+    <h4>Left</h4>
+    <ul><li>One</li><li>Two</li></ul>
+  </div>
+  <div>
+    <h4>Right</h4>
+    <ul><li>One</li><li>Two</li></ul>
+  </div>
+</div>
+
+<h4>Callouts</h4>
+<div class="callout">
+  <strong>Neutral callout.</strong> Uses the accent color. For asides, definitions, or non-urgent highlights.
+</div>
+<div class="callout good">
+  <strong>Good callout.</strong> Green. For confirmations, recommendations, "go" signals.
+</div>
+<div class="callout warn">
+  <strong>Warn callout.</strong> Amber. For caveats, gotchas, "watch out" notes.
+</div>
+
+<h4>Table</h4>
+<table>
+  <tr><th>Column A</th><th>Column B</th><th>Column C</th></tr>
+  <tr><td>Row 1</td><td>value</td><td>value</td></tr>
+  <tr><td>Row 2</td><td>value</td><td>value</td></tr>
+  <tr><td>Row 3</td><td>value</td><td>value</td></tr>
+</table>
+
+<h4>Pills (used inline in tables, headings, or anywhere short status fits)</h4>
+<p>
+  <span class="pill p1">P1</span>
+  <span class="pill p2">P2</span>
+  <span class="pill p3">P3</span>
+  <span class="pill p4">P4</span>
+  <span class="pill skip">skip</span>
+</p>
+
+<h2 id="phases">3. Phased plan</h2>
+
+<div class="phase-block p1">
+  <div class="phase-header"><span class="pill p1">Phase 1</span><h3>Foundations</h3></div>
+  <p class="meta">A short metadata line under the header describing the goal.</p>
+  <ul>
+    <li>Deliverable one</li>
+    <li>Deliverable two</li>
+  </ul>
+  <p class="meta"><strong>Exit criterion:</strong> what "done" looks like for this phase.</p>
+</div>
+
+<div class="phase-block p2">
+  <div class="phase-header"><span class="pill p2">Phase 2</span><h3>Next layer</h3></div>
+  <ul><li>Deliverable</li></ul>
+</div>
+
+<div class="phase-block p3">
+  <div class="phase-header"><span class="pill p3">Phase 3</span><h3>Adjacent surfaces</h3></div>
+  <ul><li>Deliverable</li></ul>
+</div>
+
+<div class="phase-block skip">
+  <div class="phase-header"><span class="pill skip">Out of scope</span><h3>Explicitly not built</h3></div>
+  <ul><li>Thing we are not doing</li></ul>
+</div>
+
+<div class="verdict" id="verdict">
+  <h2>Verdict</h2>
+  <p>The closing recommendation block. Uses the "good" green to read as the final positive call. Bold the recommendation, then explain.</p>
+</div>
+
+</body>
+</html>

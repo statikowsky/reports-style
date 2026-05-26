@@ -1,0 +1,214 @@
+/*
+ * reports-style — warm editorial style for HTML reports
+ *
+ * Override --accent and --accent-soft per report to re-skin the visual rhythm
+ * (left-border strips, callouts, link color). See palettes.md for tuned pairs.
+ */
+
+:root {
+  /* Warm neutrals — keep these stable across reports */
+  --bg: #fafaf7;
+  --fg: #1c1c1c;
+  --muted: #5a5a5a;
+  --line: #d8d4cb;
+  --table-head: #f0ede5;
+  --code-bg: #ececea;
+
+  /* Accent — override per report */
+  --accent: #245a8d;
+  --accent-soft: #e8f0f7;
+
+  /* Semantic accents — used for callouts and pills, generally stable */
+  --warn: #b54708;
+  --warn-soft: #fef3c7;
+  --good: #166534;
+  --good-soft: #dcfce7;
+  --skip: #6b7280;
+  --skip-soft: #f1f5f9;
+  --danger: #991b1b;
+  --danger-soft: #fde2e2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  padding: 40px 48px 80px;
+  max-width: 1100px;
+}
+
+/* Use body.landing for index/landing pages — narrower, slightly larger body type */
+body.landing { max-width: 900px; padding-top: 60px; font-size: 16px; }
+
+/* ===== Headings ===== */
+h1 { font-size: 30px; margin: 0 0 6px; letter-spacing: -0.01em; }
+h2 { font-size: 22px; margin: 48px 0 16px; padding-bottom: 6px; border-bottom: 1px solid var(--line); letter-spacing: -0.005em; }
+h3 { font-size: 17px; margin: 28px 0 10px; }
+/* h4 is used as a small eyebrow label, not a body heading */
+h4 { font-size: 15px; margin: 18px 0 6px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+p { margin: 8px 0; }
+ul, ol { margin: 8px 0 8px 22px; padding: 0; }
+li { margin: 4px 0; }
+
+.subtitle { color: var(--muted); margin-bottom: 24px; }
+.small { font-size: 13px; color: var(--muted); }
+.meta { font-size: 13px; color: var(--muted); }
+
+/* ===== Inline code ===== */
+code {
+  font: 13px/1.4 "SF Mono", Menlo, Consolas, monospace;
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ===== Layout helpers ===== */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 16px 0;
+}
+
+.twocol { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 760px) { .twocol { grid-template-columns: 1fr; } }
+
+/* ===== Cards ===== */
+.card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.card h4 { margin-top: 0; color: var(--accent); }
+
+/* ===== Table ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+th, td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  font-size: 14px;
+}
+th { background: var(--table-head); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+
+/* ===== Pills (tiny rounded badges, used for phase tags / status) ===== */
+.pill {
+  display: inline-block;
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+.pill.p1   { background: var(--good-soft);   color: var(--good); }
+.pill.p2   { background: var(--accent-soft); color: var(--accent); }
+.pill.p3   { background: var(--warn-soft);   color: var(--warn); }
+.pill.p4   { background: var(--danger-soft); color: var(--danger); }
+.pill.skip { background: var(--skip-soft);   color: var(--skip); }
+
+/* ===== Phase block (numbered section panel with colored left strip) ===== */
+.phase-block {
+  border-left: 4px solid var(--accent);
+  background: white;
+  padding: 16px 20px;
+  margin: 18px 0;
+  border-radius: 0 8px 8px 0;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.phase-block.p1   { border-left-color: var(--good); }
+.phase-block.p2   { border-left-color: var(--accent); }
+.phase-block.p3   { border-left-color: var(--warn); }
+.phase-block.p4   { border-left-color: var(--danger); }
+.phase-block.skip { border-left-color: var(--skip); }
+
+.phase-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.phase-header h3 { margin: 0; }
+
+/* ===== Callout (inline highlighted note) ===== */
+.callout {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 0 6px 6px 0;
+}
+.callout.warn { background: var(--warn-soft); border-color: var(--warn); }
+.callout.good { background: var(--good-soft); border-color: var(--good); }
+
+/* ===== Verdict block (closing recommendation) ===== */
+.verdict {
+  background: var(--good-soft);
+  border-left: 4px solid var(--good);
+  padding: 16px 22px;
+  border-radius: 0 8px 8px 0;
+  margin: 28px 0;
+}
+.verdict h2 { margin-top: 0; border-bottom: none; padding-bottom: 0; }
+
+/* ===== Table of contents ===== */
+.toc {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin: 20px 0;
+}
+.toc ol { margin: 6px 0 0 22px; }
+.toc a { color: var(--accent); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* ===== Landing-page card (full-bleed clickable card on index pages) ===== */
+a.lcard {
+  display: block;
+  background: white;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 12px 0;
+  text-decoration: none;
+  color: var(--fg);
+  transition: border-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+a.lcard:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border-color: var(--accent);
+}
+a.lcard .title { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
+a.lcard .desc  { font-size: 14px; color: var(--muted); margin: 0; }
+a.lcard .filename {
+  font: 12px "SF Mono", Menlo, Consolas, monospace;
+  color: var(--muted);
+  margin-top: 6px;
+  display: block;
+}
+
+/* ===== Eyebrow label (small uppercase section divider on landing pages) ===== */
+.eyebrow {
+  font-size: 14px;
+  margin: 36px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
