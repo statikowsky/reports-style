@@ -2,6 +2,8 @@
 
 A warm, editorial visual style for long-form HTML reports — analyses, plans, design docs, comparison pages.
 
+**Live demo:** [statikowsky.github.io/reports-style](https://statikowsky.github.io/reports-style/) — landing page + [component showcase](https://statikowsky.github.io/reports-style/template.html).
+
 ## What's here
 
 - **`style.css`** — the stylesheet. Drop-in via `<link rel="stylesheet" href="style.css">`. Override `--accent` and `--accent-soft` in a per-report `<style>` block to re-skin the visual rhythm.
@@ -122,3 +124,7 @@ That cascades through links, card h4 color, the default `.phase-block` / `.callo
 ## Inspirations
 
 Stripe Press / Tufte CSS (editorial restraint, warm paper feel), Linear and Vercel docs (white-card-on-tinted-bg layout, generous spacing), iA Writer / Bear Notes (warm-neutral palette over pure grayscale).
+
+## License
+
+MIT — see [LICENSE](LICENSE).

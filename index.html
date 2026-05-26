@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>reports-style — warm editorial style for HTML reports</title>
+<meta name="description" content="A warm, editorial visual style for long-form HTML reports — analyses, plans, design docs, comparison pages.">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --accent: #245a8d;
+    --accent-soft: #e8f0f7;
+  }
+</style>
+</head>
+<body class="landing">
+
+<h1>reports-style</h1>
+<p class="subtitle">A warm, editorial visual style for long-form HTML reports — analyses, plans, design docs, comparison pages.</p>
+
+<p>This page is itself styled with <code>reports-style</code> (using <code>body.landing</code>). The links below open the live component showcase and the repo source.</p>
+
+<div class="eyebrow">See it</div>
+
+<a class="lcard" href="template.html">
+  <div class="title">Live template &amp; component showcase</div>
+  <p class="desc">Every supported component on one page — cards, callouts, phase blocks, pills, tables, verdict. Doubles as a copy-paste starting point.</p>
+  <span class="filename">template.html</span>
+</a>
+
+<a class="lcard" href="https://github.com/statikowsky/reports-style">
+  <div class="title">Source on GitHub</div>
+  <p class="desc">Stylesheet, template, palettes, and the README with the design recipe.</p>
+  <span class="filename">github.com/statikowsky/reports-style</span>
+</a>
+
+<a class="lcard" href="https://github.com/statikowsky/reports-style/blob/main/palettes.md">
+  <div class="title">Palettes</div>
+  <p class="desc">Pre-tuned <code>--accent</code> / <code>--accent-soft</code> pairs, plus rules of thumb for rolling your own.</p>
+  <span class="filename">palettes.md</span>
+</a>
+
+<div class="eyebrow">Quick start</div>
+
+<p>Drop the stylesheet in and override two CSS variables to re-skin the visual rhythm:</p>
+
+<div class="callout">
+  <strong>Two lines re-skin the whole report.</strong> <code>--accent</code> drives links, card titles, the default phase-block / callout strip, and the TOC. <code>--accent-soft</code> drives callout backgrounds and the <code>.pill.p2</code> background.
+</div>
+
+<div class="twocol">
+  <div>
+    <h4>Include</h4>
+    <p><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></p>
+  </div>
+  <div>
+    <h4>Re-skin</h4>
+    <p><code>--accent</code> + <code>--accent-soft</code> in a per-report <code>&lt;style&gt;</code> block.</p>
+  </div>
+</div>
+
+<div class="eyebrow">What this style is and isn't</div>
+
+<div class="twocol">
+  <div>
+    <h4>Is</h4>
+    <p>An editorial-feeling style for long-form analysis, plans, and design docs. Designed to read on screen as if it were printed — warm background, generous whitespace, restrained color.</p>
+  </div>
+  <div>
+    <h4>Isn't</h4>
+    <p>A UI framework. There are no buttons, forms, modals, or interactive states beyond the <code>lcard</code> hover. Don't try to build an app with this.</p>
+  </div>
+</div>
+
+<p class="small" style="margin-top: 48px;">MIT licensed. Inspired by Stripe Press, Tufte CSS, Linear &amp; Vercel docs, iA Writer.</p>
+
+</body>
+</html>
